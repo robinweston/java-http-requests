@@ -1,0 +1,17 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.robinweston</groupId>
+  <artifactId>http-requests</artifactId>
+  <version>1</version>
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>com.robinweston.MakeHttpRequests</mainClass>
+            </configuration>
+        </plugin>
+        </plugins>
+    </build>
+</project>
