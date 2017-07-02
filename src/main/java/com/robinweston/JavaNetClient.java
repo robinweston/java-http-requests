@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-class JavaNetConnection {
+class JavaNetClient implements IMakeHttpRequests {
     public String makeGetRequest(String targetUrl) {
         HttpURLConnection connection = null;
 
@@ -15,14 +15,7 @@ class JavaNetConnection {
             connection = (HttpURLConnection)url.openConnection();
 
             InputStream is = connection.getInputStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-            StringBuilder response = new StringBuilder();
-            String line;
-            while ((line = rd.readLine()) != null) {
-                response.append(line);
-            }
-            rd.close();
-            return response.toString();    
+            return StreamHelper.readAsString(is);   
         } catch(Exception e) {
             e.printStackTrace();
             return null;
